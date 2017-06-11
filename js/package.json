@@ -1,0 +1,16 @@
+{
+  "name": "js",
+  "version": "0.0.1",
+  "description": "this is the code sample for book data structure and algo for javascript",
+  "main": "index.js",
+  "author": "aaroisme",
+  "license": "MIT",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha"
+  },
+  "devDependencies": {
+    "chai": "^4.0.2",
+    "mocha": "^3.4.2",
+    "istanbul": "^0.4.5"
+  }
+}
