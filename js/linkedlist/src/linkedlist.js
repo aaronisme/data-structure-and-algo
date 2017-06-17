@@ -96,6 +96,16 @@ class LinkedList {
     }
   }
 
+  toString(){
+    let current = this.head;
+    let string = '';
+    while(current){
+      string += current.element + (current.next ? ' ': '');
+      current = current.next;
+    }
+    return string;
+  }
+
 }
 
 module.exports = LinkedList;

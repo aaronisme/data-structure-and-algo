@@ -43,10 +43,26 @@ describe('LinkedList', () => {
       newLinkedList.append('abc');
       newLinkedList.append('efg');
 
-      expect(newLinkedList.insertAt(1,'xyz')).to.equal(true);
+      expect(newLinkedList.insertAt(1, 'xyz')).to.equal(true);
       expect(newLinkedList.extractAt(1)).to.equal('xyz');
       expect(newLinkedList.length).to.equal(3);
     })
+  })
+
+
+  describe('toString', () => {
+    it('should return empty string if the linked list is empty', () => {
+      const newLinkedList = new LinkedList();
+      expect(newLinkedList.toString()).to.equal('');
+    });
+
+    it('should return add the element in the linked list', () => {
+      const newLinkedList = new LinkedList();
+      newLinkedList.append('abc');
+      newLinkedList.append('efg');
+      newLinkedList.insertAt(1, 'xyz')
+      expect(newLinkedList.toString()).to.equal('abc xyz efg');
+    });
   })
 
 })
