@@ -70,6 +70,7 @@ describe('LinkedList', () => {
     it('should return -1 if the element not in the list', () => {
       const newLinkedList = new LinkedList();
       expect(newLinkedList.indexOf('abc')).to.equal(-1);
+      expect(newLinkedList.isEmpty()).to.equal(true);
     });
 
     it('should return right index in the list', () => {

@@ -122,6 +122,18 @@ class LinkedList {
     return result;
   }
 
+  isEmpty(){
+    return this.length == 0;
+  }
+
+  size(){
+    return this.length;
+  }
+
+  getHead(){
+    return this.head;
+  }
+
 }
 
 module.exports = LinkedList;
