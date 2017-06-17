@@ -96,14 +96,30 @@ class LinkedList {
     }
   }
 
-  toString(){
+  toString() {
     let current = this.head;
     let string = '';
-    while(current){
-      string += current.element + (current.next ? ' ': '');
+    while (current) {
+      string += current.element + (current.next ? ' ' : '');
       current = current.next;
     }
     return string;
+  }
+
+  indexOf(element) {
+    let current = this.head;
+    let index = 0;
+    let result = -1;
+    while (current) {
+      if (current.element === element) {
+        result = index;
+        return result;
+      }
+      current = current.next;
+      index++;
+    }
+
+    return result;
   }
 
 }

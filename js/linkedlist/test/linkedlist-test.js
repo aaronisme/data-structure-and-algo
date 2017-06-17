@@ -65,4 +65,19 @@ describe('LinkedList', () => {
     });
   })
 
-})
+
+  describe('IndexOf', () => {
+    it('should return -1 if the element not in the list', () => {
+      const newLinkedList = new LinkedList();
+      expect(newLinkedList.indexOf('abc')).to.equal(-1);
+    });
+
+    it('should return right index in the list', () => {
+      const newLinkedList = new LinkedList();
+      newLinkedList.append('abc');
+      newLinkedList.append('efg');
+      newLinkedList.insertAt(1, 'xyz')
+      expect(newLinkedList.indexOf('xyz')).to.equal(1);
+    });
+  });
+});
