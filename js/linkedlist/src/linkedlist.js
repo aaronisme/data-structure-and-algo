@@ -27,6 +27,22 @@ class LinkedList {
     }
   }
 
+  extractAt(postion) {
+    if (postion > -1 && postion < this.length) {
+      let current = this.head;
+      let previous;
+      let index = 0;
+      while (index < postion) {
+        previous = current;
+        current = current.next;
+        index++;
+      }
+      return current.element
+    } else {
+      return null
+    }
+  }
+
   removeAt(postion) {
     if (postion > -1 && postion < this.length) {
       let current = this.head;
@@ -34,10 +50,10 @@ class LinkedList {
       let index = 0;
       if (postion == 0) {
         this.head = current.next;
-        this.length --;
+        this.length--;
         return current.element;
       } else {
-        while(index < postion){
+        while (index < postion) {
           previous = current;
           current = current.next;
           index++;
@@ -48,6 +64,35 @@ class LinkedList {
       }
     } else {
       return null
+    }
+  }
+
+  insertAt(postion, element) {
+    const newElement = new Element(element);
+
+    if (postion > -1 && postion <= this.length) {
+      let current = this.head;
+      let previous;
+      let index = 0;
+      if (postion == 0) {
+        this.head = newElement;
+        newElement.next = current
+        this.length++;
+        return true;
+      } else {
+        while (index < postion) {
+          previous = current;
+          current = current.next;
+          index++
+        }
+
+        previous.next = newElement;
+        newElement.next = current;
+        this.length++;
+        return true;
+      }
+    } else {
+      return false
     }
   }
 

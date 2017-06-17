@@ -6,7 +6,7 @@
   "author": "aaroisme",
   "license": "MIT",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha"
+    "test": "./node_modules/mocha/bin/mocha --watch"
   },
   "devDependencies": {
     "chai": "^4.0.2",
