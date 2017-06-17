@@ -67,6 +67,10 @@ class LinkedList {
     }
   }
 
+  insertAtHead(element){
+    return this.insertAt(0, element)
+  }
+
   insertAt(postion, element) {
     const newElement = new Element(element);
 

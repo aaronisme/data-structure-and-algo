@@ -3,4 +3,5 @@ stack
 queue
 linkedlist
 js-set
+hashTable
 --recursive
