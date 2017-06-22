@@ -117,6 +117,70 @@ class BinarySearchTree {
 
     return false;
   }
+
+  get(key) {
+    let node = this.root;
+    while (node) {
+      if (key > node.key) {
+        node = node.right;
+      } else if (key < node.key) {
+        node = node.left
+      } else {
+        return node
+      }
+    }
+
+    return null;
+  }
+
+  remove(key) {
+    let currentNode = this.root;
+    let parentNode = this.root;
+    while (currentNode) {
+      if (key > currentNode.key) {
+        parentNode = currentNode
+        currentNode = currentNode.right
+      } else if (key < currentNode.key) {
+        parentNode = currentNode
+        currentNode = currentNode.left
+      } else {
+        if (currentNode.left == null && currentNode.right == null) {
+          this.relation(parentNode, currentNode) == 'left' ? parentNode.left = null : parentNode.right = null;
+          return;
+        } else if (currentNode.left != null && currentNode.right != null) {
+          if (this.relation(parentNode, currentNode) == 'left') {
+            currentNode.right.left = currentNode.left
+            parentNode.left = currentNode.right;
+          } else {
+            currentNode.right.left = currentNode.left
+            parentNode.right = currentNode.right
+          }
+          return;
+        } else {
+          this.relation(parentNode, currentNode) == 'left' ? parentNode.left = this.getChildNode(currentNode) : parentNode.right = this.getChildNode(currentNode)
+          return;
+        }
+      }
+    }
+  }
+
+  relation(parentNode, childNode) {
+    if (parentNode.left == childNode) {
+      return 'left'
+    } else {
+      return 'right'
+    }
+  }
+
+  getChildNode(node) {
+    if (node.left) {
+      return node.left
+    }
+
+    if (node.right) {
+      return node.right
+    }
+  }
 }
 
 module.exports = BinarySearchTree;

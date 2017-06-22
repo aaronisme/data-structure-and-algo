@@ -87,4 +87,54 @@ describe('BSTree', () => {
     expect(bstree.search(9)).to.be.true
     expect(bstree.search(8)).to.be.false
   })
+
+
+
+  describe('remove', () => {
+    let bstree;
+    beforeEach(() => {
+      bstree = new BinarySearchTree();
+      bstree.insert(20);
+      bstree.insert(10);
+      bstree.insert(30);
+      bstree.insert(8);
+      bstree.insert(12);
+      bstree.insert(7);
+      bstree.insert(15);
+      bstree.insert(29);
+      bstree.insert(35);
+    })
+
+    it('should able to remove last left node in the tree', () => {
+      bstree.remove(7)
+      expect(bstree.get(8).left).to.equal(null)
+    })
+
+    it('should able to remove last right node in the tree', () => {
+      bstree.remove(15)
+      expect(bstree.get(12).right).to.equal(null)
+    })
+
+    it('should able to remove one node with singal left child in the tree', () => {
+      bstree.remove(8)
+      expect(bstree.get(10).left.key).to.equal(7)
+    })
+
+    it('should able to remove one node with singal right child in the tree', () => {
+      bstree.remove(12)
+      expect(bstree.get(10).right.key).to.equal(15)
+    })
+
+    it('should able to remove one node with two child on the left tree', () => {
+      bstree.remove(10)
+      expect(bstree.get(20).left.key).to.equal(12)
+      expect(bstree.get(12).left.key).to.equal(8)
+    })
+
+    it('should able to remove one node with two child on the right tree', () => {
+      bstree.remove(30)
+      expect(bstree.get(20).right.key).to.equal(35)
+      expect(bstree.get(35).left.key).to.equal(29)
+    })
+  })
 })
