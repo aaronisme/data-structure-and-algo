@@ -53,4 +53,15 @@ describe('BSTree', () => {
     expect(result).to.deep.equal([10, 12, 11])
   })
 
+  it('should return the min value in the tree', () => {
+    const bstree = new BinarySearchTree();
+    bstree.insert(11);
+    bstree.insert(12);
+    bstree.insert(10);
+    bstree.insert(13);
+    bstree.insert(9);
+
+    expect(bstree.min()).to.equal(9);
+  })
+
 })

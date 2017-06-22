@@ -71,6 +71,21 @@ class BinarySearchTree {
       callback(node)
     }
   }
+
+  min() {
+    return this.minNode(this.root)
+  }
+
+  minNode(node) {
+    if (node) {
+      let currentNode = node;
+      while (currentNode.left !== null) {
+        currentNode = currentNode.left;
+      }
+      return currentNode.key
+    }
+    return undefined
+  }
 }
 
 module.exports = BinarySearchTree;
