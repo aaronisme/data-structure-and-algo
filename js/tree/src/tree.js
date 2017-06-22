@@ -87,20 +87,35 @@ class BinarySearchTree {
     return undefined
   }
 
-  max(){
+  max() {
     return this.maxNode(this.root)
   }
 
-  maxNode(node){
-    if(node){
+  maxNode(node) {
+    if (node) {
       let currentNode = node;
-      while(currentNode.right !== null){
+      while (currentNode.right !== null) {
         currentNode = currentNode.right;
       }
 
       return currentNode.key;
     }
     return undefined;
+  }
+
+  search(key) {
+    let node = this.root;
+    while (node) {
+      if (key > node.key) {
+        node = node.right;
+      } else if (key < node.key) {
+        node = node.left
+      } else {
+        return true
+      }
+    }
+
+    return false;
   }
 }
 

@@ -75,4 +75,16 @@ describe('BSTree', () => {
     expect(bstree.max()).to.equal(13);
   })
 
+  it('should able to search value in the tree', () => {
+    const bstree = new BinarySearchTree();
+    bstree.insert(11);
+    bstree.insert(12);
+    bstree.insert(10);
+    bstree.insert(13);
+    bstree.insert(9);
+
+    expect(bstree.search(13)).to.be.true
+    expect(bstree.search(9)).to.be.true
+    expect(bstree.search(8)).to.be.false
+  })
 })
