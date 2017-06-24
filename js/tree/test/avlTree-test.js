@@ -3,7 +3,7 @@ const AVLTree = require('../src/avlTree');
 
 const expect = chai.expect;
 
-describe.only('AVLTREE', () => {
+describe('AVLTREE', () => {
   let avlTree;
   beforeEach(() => {
     avlTree = new AVLTree();
