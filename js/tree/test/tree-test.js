@@ -137,4 +137,25 @@ describe('BSTree', () => {
       expect(bstree.get(35).left.key).to.equal(29)
     })
   })
+
+
+  describe('other functions', () =>{
+    beforeEach(() => {
+      bstree = new BinarySearchTree();
+      bstree.insert(20);
+      bstree.insert(10);
+      bstree.insert(30);
+      bstree.insert(8);
+      bstree.insert(12);
+      bstree.insert(7);
+      bstree.insert(15);
+      bstree.insert(29);
+      bstree.insert(35);
+    })
+
+    it('should return the height of the tree', () => {
+      expect(bstree.treeHeight()).to.equal(3);
+    })
+
+  })
 })

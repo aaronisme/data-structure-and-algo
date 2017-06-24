@@ -181,6 +181,18 @@ class BinarySearchTree {
       return node.right
     }
   }
+
+  _height(node) {
+    if (node === null) {
+      return -1;
+    } else {
+      return Math.max(this._height(node.left), this._height(node.right)) + 1;
+    }
+  }
+
+  treeHeight(){
+    return this._height(this.root);
+  }
 }
 
 module.exports = BinarySearchTree;
