@@ -16,7 +16,7 @@ class BinarySearchTree {
     if (this.root === null) {
       this.root = newNode
     } else {
-      this.insertNode(newNode, this.root)
+      this.root = this.insertNode(newNode, this.root)
     }
   }
 
@@ -25,15 +25,17 @@ class BinarySearchTree {
       if (node.right === null) {
         node.right = newNode;
       } else {
-        this.insertNode(newNode, node.right)
+        node.right = this.insertNode(newNode, node.right)
       }
     } else {
       if (node.left === null) {
         node.left = newNode;
       } else {
-        this.insertNode(newNode, node.left)
+        node.left = this.insertNode(newNode, node.left)
       }
     }
+
+    return node
   }
 
   inOrderTraverse(callback) {
@@ -190,7 +192,7 @@ class BinarySearchTree {
     }
   }
 
-  treeHeight(){
+  treeHeight() {
     return this._height(this.root);
   }
 }

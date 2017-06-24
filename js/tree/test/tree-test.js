@@ -3,15 +3,19 @@ const BinarySearchTree = require('../src/tree');
 
 const expect = chai.expect;
 
-describe('BSTree', () => {
+describe.only('BSTree', () => {
 
   it('should insert collect node into the tree', () => {
     const bstree = new BinarySearchTree();
     bstree.insert(11);
     bstree.insert(12);
     bstree.insert(10);
+    bstree.insert(9);
+    bstree.insert(8);
 
-    expect(bstree.root.key).to.equal(11)
+expect(avlTree.get(11).left.key).to.equal(10)
+    expect(avlTree.get(11).right.key).to.equal(12)
+    expect(avlTree.head()).to.equal(11)    expect(bstree.root.key).to.equal(11)
     expect(bstree.root.left.key).to.equal(10)
     expect(bstree.root.right.key).to.equal(12);
   })
