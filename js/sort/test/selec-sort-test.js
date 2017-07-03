@@ -2,7 +2,7 @@ const sorts = require('../src/select-sort');
 const chai = require('chai');
 
 const expect = chai.expect;
-describe.only('Sort Function', () => {
+describe.only('select Sort Function', () => {
   it('should use select sort to sort the array', () => {
     const inputArray = [3, 2, 1, 5];
 

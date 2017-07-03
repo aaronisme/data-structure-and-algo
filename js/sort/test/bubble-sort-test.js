@@ -2,7 +2,7 @@ const sorts = require('../src/bubble-sort');
 const chai = require('chai');
 
 const expect = chai.expect;
-describe.only('Sort Function', () => {
+describe.only('Bubble Sort Function', () => {
   it('should use bubble sort to sort the array', () => {
     const inputArray = [3, 2, 1, 5];
 
