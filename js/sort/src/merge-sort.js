@@ -20,6 +20,7 @@ const merge = (leftArray, rightArray) => {
   const result = [];
   let i = 0;
   let j = 0;
+  // how to compare two sorted array --- and get merge the two sorted array together
   while (i < leftArray.length && j < rightArray.length) {
     if (leftArray[i] < rightArray[j]) {
       result.push(leftArray[i++])
@@ -28,14 +29,17 @@ const merge = (leftArray, rightArray) => {
     }
   }
 
+// put the remaining items into the result
   while (i < leftArray.length) {
     result.push(leftArray[i++])
   }
 
+// put the remaining items into the result
   while (j < rightArray.length) {
     result.push(rightArray[j++])
   }
 
+// the two while can only be effective in one
   return result;
 }
 
