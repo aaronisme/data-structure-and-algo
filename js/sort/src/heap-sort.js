@@ -26,9 +26,12 @@ const heapify = (items, heapSize, i) => {
     largest = left
   }
 
+// assign the largest to left and verify if bigger than right
   if(right < heapSize && items[right] > items[largest]){
     largest = right
   }
+// find the larger one and swap it !
+
 
   if(largest !== i){
     swap(items, i, largest)
