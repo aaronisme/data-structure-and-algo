@@ -1,41 +1,39 @@
 const heapSort = (items) => {
-  const result = [];
-  const itemsLength = items.length
-  if(items.length <=1){
-    return items;
+  let heapSize = items.length;
+  buildHeap(items)
+
+  while(heapSize > 0){
+    heapSize--;
+    swap(items, 0, heapSize);
+    heapify(items, heapSize, 0)
   }
 
-  for(let i = 0; i < itemsLength; i++){
-    heap(items);
-    [items[0], items[items.length - 1]] = [items[items.length -1], items[0]];
-    result.push(items.pop());
-  }
-
-  return result.reverse();
+  return items;
 }
 
-const heap = (items) => {
-  const level = Math.floor(items.length / 2);
-  for (let parent = level - 1; parent >=0 ; parent--) {
-    let parentNode = items[parent];
-    let leftNode = items[parent * 2 + 1];
-    let rightNode = items[parent * 2 + 2];
-
-    if (parentNode < leftNode) {
-      swap(items, parent, parent * 2 + 1)
-      parentNode = items[parent];
-      leftNode = items[parent * 2 + 1];
-      rightNode = items[parent * 2 + 2];
-    }
-
-    if (parentNode < rightNode) {
-      swap(items, parent, parent * 2 + 2)
-      parentNode = items[parent];
-      leftNode = items[parent * 2 + 1];
-      rightNode = items[parent * 2 + 2];
-    }
+const buildHeap = (items) =>{
+  for(let i= Math.floor(items.length / 2); i >= 0; i--){
+    heapify(items, items.length, i)
   }
-  return items;
+}
+
+const heapify = (items, heapSize, i) => {
+  let left = 2 * i + 1;
+  let right = 2 * i + 2;
+  let largest = i;
+
+  if(left < heapSize && items[left] > items[largest]){
+    largest = left
+  }
+
+  if(right < heapSize && items[right] > items[largest]){
+    largest = right
+  }
+
+  if(largest !== i){
+    swap(items, i, largest)
+    heapify(items, heapSize, largest)
+  }
 }
 
 const swap = (array, i, j) => {
@@ -46,6 +44,5 @@ const swap = (array, i, j) => {
 }
 
 module.exports = {
-  heap,
   heapSort
 }
